@@ -1,0 +1,33 @@
+<h1>Listing teacher_profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>About</th>
+      <th>Url</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teacher_profiles.each do |teacher_profile| %>
+      <tr>
+        <td><%= teacher_profile.user %></td>
+        <td><%= teacher_profile.name %></td>
+        <td><%= teacher_profile.about %></td>
+        <td><%= teacher_profile.url %></td>
+        <td><%= teacher_profile.email %></td>
+        <td><%= link_to 'Show', teacher_profile %></td>
+        <td><%= link_to 'Edit', edit_teacher_profile_path(teacher_profile) %></td>
+        <td><%= link_to 'Destroy', teacher_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher profile', new_teacher_profile_path %>
